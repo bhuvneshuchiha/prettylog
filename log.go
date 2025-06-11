@@ -431,3 +431,22 @@ func CreateLoggerFromEnv(out *os.File) *slog.Logger {
 func Trace(log *slog.Logger, msg string, data ...any) {
 	log.Log(context.Background(), LevelTrace, msg, data...)
 }
+
+func NewMinimalPrettyLogger(out io.Writer) *slog.Logger {
+	params := PrettyLoggerParams{
+		Level: LevelTrace,
+		Out:   out,
+	}
+
+	handler := New(&slog.HandlerOptions{
+		Level:       params.Level,
+		AddSource:   false,
+		ReplaceAttr: nil,
+	},
+		WithDestinationWriter(params.Out),
+		WithColor(),
+		WithOutputEmptyAttrs(),
+	)
+
+	return slog.New(handler)
+}
