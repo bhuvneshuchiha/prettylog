@@ -112,6 +112,9 @@ PrettyLog extends the standard slog levels:
 logger.Info("Message", 
     prettylog.ProcessKey, "api-server",
     prettylog.AreaKey, "authentication")
+OR ->
+logger.Info("Message", "process","some_process", "area","some_area", "metadata/port/err)
+I prefer keeping the file name as process and the function name as area for better log tracing.
 
 // ❌ This will cause an assertion failure
 logger.Info("Message", "some", "value") // Missing ProcessKey and AreaKey
