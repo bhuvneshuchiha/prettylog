@@ -18,7 +18,7 @@ A beautiful, colorized structured logging package for Go that extends the standa
 ## 📦 Installation
 
 ```bash
-go get github.com/your-username/prettylog
+go get github.com/bhuvneshuchiha/prettylog
 ```
 
 ## 🚀 Quick Start
